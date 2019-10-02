@@ -9,4 +9,17 @@ app.set('views', __dirname +  '/views')
 
 const port = 3000
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.get('/pipe-dream', function (req, res) {
+    res.send('GUI')
+})
+
+app.post('/pipe-dream/api/build', function (req, res) {
+    res.send('BUILD')
+})
+
+app.patch('/pipe-dream/api/save', function (req, res) {
+    res.send('SAVE')
+})
+
+
+app.listen(port, (req, res) => {console.log(`Example app listening on port ${port}!`))
