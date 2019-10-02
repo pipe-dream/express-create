@@ -9,9 +9,16 @@ app.set('views', __dirname +  '/views')
 
 const port = 3000
 
-app.get('/pipe-dream', function (req, res) {
-    res.send('GUI')
+app.get('/pipe-dream', (req, res) => {
+    res.render('index', {
+        settings: {
+            isSandboxed: true,
+            appName: "pipe-dream for express.js",
+            workbench_data: {}
+        } 
+    })
 })
+
 
 app.post('/pipe-dream/api/build', function (req, res) {
     res.send('BUILD')
@@ -20,20 +27,5 @@ app.post('/pipe-dream/api/build', function (req, res) {
 app.patch('/pipe-dream/api/save', function (req, res) {
     res.send('SAVE')
 })
-
-/*
-return view('pipe-dream::spa')->with([
-    'settings' => [
-        'isSandboxed' => env('PIPEDREAM_IS_SANDBOXED', false),
-        'appName'     => request()->path(),
-        'workbench_data' => json_decode("{}") // not implemented
-    ],
-]);
-*/
-
-
-
-
-
 
 app.listen(port, (req, res) => {console.log(`Example app listening on port ${port}!`)})
