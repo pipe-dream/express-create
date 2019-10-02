@@ -21,5 +21,19 @@ app.patch('/pipe-dream/api/save', function (req, res) {
     res.send('SAVE')
 })
 
+/*
+return view('pipe-dream::spa')->with([
+    'settings' => [
+        'isSandboxed' => env('PIPEDREAM_IS_SANDBOXED', false),
+        'appName'     => request()->path(),
+        'workbench_data' => json_decode("{}") // not implemented
+    ],
+]);
+*/
+
+
+
+
+
 
 app.listen(port, (req, res) => {console.log(`Example app listening on port ${port}!`)})
