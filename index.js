@@ -11,11 +11,11 @@ const port = 3000
 
 app.get('/pipe-dream', (req, res) => {
     res.render('index', {
-        settings: {
+        settings: JSON.stringify({
             isSandboxed: true,
             appName: "pipe-dream for express.js",
             workbench_data: {}
-        } 
+        }) 
     })
 })
 
