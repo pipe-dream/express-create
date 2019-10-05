@@ -20,7 +20,6 @@ mix.js('app.js', 'public/js')
 
 /* while developing make sure public/vendor/pipe-dream/laravel is fresh */
 mix.copy('public/js/app.js', './public/vendor/pipe-dream/laravel-create/js/app.js')
-
 mix.copy('node_modules/@pipe-dream/core/dist/pipe-dream.css', './public/vendor/pipe-dream/laravel-create/css/pipe-dream.css')
 
 
