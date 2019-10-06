@@ -8,8 +8,12 @@ app.engine('html', mustacheExpress())
 app.set('view engine', 'html')
 app.set('views', __dirname +  '/views')
 
-app.use(require('./routes/gui.js'))
-app.use(require('./routes/saves.js'))
-app.use(require('./routes/builds.js'))
+app.use(require('./routes/gui'))
+app.use(require('./routes/saves'))
+app.use(require('./routes/builds'))
+app.use(require('./routes/bundle'))
+
+
+
 
 app.listen(3000, (req, res) => {console.log(`App running...`)})
