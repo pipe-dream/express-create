@@ -1,30 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const Bundle = require('../Bundle.js')
 var fs = require('fs-extra');
 var rimraf = require("rimraf");
+const path = require('path')
 
-
-function cleanSandBox() {
-    rimraf("sandbox/project/", function () { console.log("done"); });
-}
-
-function writeFiles(files) {
-    files.forEach(file => writeFile(file))
-}
-
-function writeFile(file) {
-    fs.outputFile(`sandbox/project/${file.path}`, file.content, function(err) {
-        if(err) {
-            return console.log(err);
-        }
-    });
-}
-
-module.exports = router.post("/pipe-dream/api/build", async (req, res) => {
-    cleanSandBox();
-    const result = writeFiles(req.body.reviewFiles);
+router.post("/pipe-dream/api/build", async (req, res) => {
+    var bundle = Bundle.make("car-app", req.body.reviewFiles)
+    bundle.saveAsZip();
     
     res.send({
-
+        bundleUrl: bundle.url()
     })
 })
+
+module.exports = router

@@ -11,9 +11,6 @@ app.set('views', __dirname +  '/views')
 app.use(require('./routes/gui'))
 app.use(require('./routes/saves'))
 app.use(require('./routes/builds'))
-app.use(require('./routes/bundle'))
-
-
-
+app.use(require('./routes/bundle.js'))
 
 app.listen(3000, (req, res) => {console.log(`App running...`)})
